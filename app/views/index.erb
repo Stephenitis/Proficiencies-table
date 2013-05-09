@@ -1,15 +1,25 @@
 <div class="container">
   <h1>User Skills and Levels</h1>
   
-  <ul>
+  <table>
+    <tr>
+    <th> name</th>
+    <th>skill</th>
+    <th>years</th>
+    <th>formal?</th>
+  </tr>
     <% @users.each do |user| %>
-    <li><h3><%= user.name %> | <%= user.email %></h3></li>
-          <ol>
-      <% user.proficiencies.each do |p| %>
-      <li>Skill: <%= p.skill.name %> Context:<%= p.skill.context %>, Years: <%= p.years %>, Formal Training: <%= p.formal %> </li>
+    <tr>
+      <td> <h3><%=user.name %></h3><td>
+      </tr>
+        <% user.proficiencies.each do |p| %>
+        <tr>
+        <td></td>
+        <td><%= p.skill.name%></td>
+        <td><%= p.years%></td>
+        <td><%= p.formal%></td>
+      </tr>
       <% end %>
-    </ol>
-    <% end %>
-  </ul>
 
-</div>
+      <% end %>
+    </table>
